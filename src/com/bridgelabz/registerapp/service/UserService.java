@@ -13,4 +13,8 @@ public class UserService {
 		return userDao.registerUser(user);
 	}
 
+	public boolean checkValidUser(User user) {
+		return userDao.checkValidUser(user);
+	}
+
 }

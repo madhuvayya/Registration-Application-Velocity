@@ -6,7 +6,7 @@
 	<display-name>RegistrationAppVelocity</display-name>
 
 	<welcome-file-list>
-		<welcome-file>register.vm</welcome-file>
+		<welcome-file>login.vm</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>

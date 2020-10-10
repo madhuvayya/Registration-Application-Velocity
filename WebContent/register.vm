@@ -38,7 +38,7 @@
 			<div><input class="submit-field" type="submit" value="Submit"></div>
 		</div>
 	</form>
-	<div>Already registered? <a href="/register-app-velocity/login.vm"> Login</a></div>
+	<div>Already registered? <a href="/RegistrationAppVelocity/login.vm"> Login</a></div>
 	</div>
 </body>
 </html>
