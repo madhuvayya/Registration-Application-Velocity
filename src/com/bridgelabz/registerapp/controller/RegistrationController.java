@@ -27,22 +27,18 @@ public class RegistrationController extends HttpServlet {
 		user.setEmailId(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
 		user.setConfirmPassword(request.getParameter("confirm-password"));
-		boolean isRegister = false;
+		
 		String message = "";
 		String path = "";
 		try {
-			isRegister = userService.registerUser(user);
+			userService.registerUser(user);
+			message = "Success";
+			path = "login.vm";
 		} catch (SQLException e) {
+			message = "Failed";
+			path = "register.vm";
 			e.printStackTrace();
 		}
-
-			if(isRegister) {
-				message = "Success";
-				path = "login.vm";				
-			}else {
-				message = "Failed";
-				path = "register.vm";				
-			} 
 		
 		request.setAttribute("message", message);
         RequestDispatcher requestDispatcher =  request.getRequestDispatcher(path);

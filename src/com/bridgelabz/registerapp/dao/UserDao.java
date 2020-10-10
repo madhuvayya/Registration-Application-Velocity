@@ -11,10 +11,8 @@ public class UserDao {
 	private Connection connection = DBConnection.getConnection();
 
 	public boolean registerUser(User user) throws SQLException {
-		System.out.println("Inside user dao");
 		String registerUserQuery = "INSERT INTO user_details (first_name,last_name,phone_number,email_id,password)\r\n" + 
 				"VALUES (?,?,?,?,?)";
-		System.out.println(connection); 
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(registerUserQuery);
 		preparedStatement.setString(1, user.getFirstName());
