@@ -25,9 +25,10 @@ public class LoginController extends HttpServlet {
 		boolean isRegisteredUser = true;
 		isRegisteredUser = userService.checkValidUser(user);
 		if (isRegisteredUser) {
-			path = "home.vm";
+			message = "You successfully logged in";
+			path = "home";
 		} else {
-			message = "Enter registred user name and password.";
+			message = "Enter registred email and password.";
 			path = "login.vm";
 		}
 		request.setAttribute("message", message);

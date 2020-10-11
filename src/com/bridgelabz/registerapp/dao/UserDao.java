@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bridgelabz.registerapp.model.User;
 
@@ -39,6 +41,30 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public List<User> getAllUsers() {
+		System.out.println("Inside user dao.");
+		String getAllUsersQuery = "SELECT first_name, last_name, phone_number, email_id FROM user_details";
+		List<User> users = new ArrayList<User>(); 
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(getAllUsersQuery);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				User user = new User();
+				user.setFirstName(resultSet.getString(1));
+				user.setLastName(resultSet.getString(2));
+				user.setPhoneNumber(resultSet.getString(3));
+				user.setEmailId(resultSet.getString(4));
+				
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users;
 	}
 
 }

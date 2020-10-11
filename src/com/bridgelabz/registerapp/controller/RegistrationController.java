@@ -32,10 +32,10 @@ public class RegistrationController extends HttpServlet {
 		String path = "";
 		try {
 			userService.registerUser(user);
-			message = "Success";
+			message = "Successfully registered.";
 			path = "login.vm";
 		} catch (SQLException e) {
-			message = "Failed";
+			message = "Failed to register.";
 			path = "register.vm";
 			e.printStackTrace();
 		}
